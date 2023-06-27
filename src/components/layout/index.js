@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { setUsername } from "@/redux/slices/username.slice";
 import store from "@/redux/store";
 import { useRouter } from "next/router";

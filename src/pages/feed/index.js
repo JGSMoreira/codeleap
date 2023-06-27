@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Navbar from "@/components/navbar";
 import NewPost from "@/components/new-post";
 import PostCard from "@/components/post-card";

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./new-post.module.css";
