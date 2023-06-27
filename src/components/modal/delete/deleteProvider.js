@@ -20,12 +20,7 @@ const DeleteProvider = ({ children }) => {
 
   return (
     <DeleteContext.Provider value={{ show, showDeleteModal, hideDeleteModal }}>
-      <ModalDelete
-        show={show}
-        id={id}
-        close={hideDeleteModal}
-        posts={posts}
-      />
+      <ModalDelete show={show} id={id} close={hideDeleteModal} posts={posts} />
       {children}
     </DeleteContext.Provider>
   );

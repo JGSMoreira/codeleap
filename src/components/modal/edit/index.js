@@ -15,12 +15,11 @@ export default function ModalEdit({ content, close, show, posts }) {
     loading.showLoading();
     event.preventDefault();
     try {
-      await editPost({id: content.id, title: newTitle, content: newContent});
+      await editPost({ id: content.id, title: newTitle, content: newContent });
       const post = posts.results.filter((post) => post.id == content.id)[0];
       post.title = newTitle;
       post.content = newContent;
-    }
-    catch (error) {
+    } catch (error) {
       alert(error);
     }
     loading.hideLoading();

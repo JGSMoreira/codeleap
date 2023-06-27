@@ -19,10 +19,13 @@ const EditProvider = ({ children }) => {
   };
 
   return (
-    <EditContext.Provider
-      value={{ show, showEditModal, hideEditModal }}
-    >
-      <ModalEdit show={show} content={content} close={hideEditModal} posts={posts}/>
+    <EditContext.Provider value={{ show, showEditModal, hideEditModal }}>
+      <ModalEdit
+        show={show}
+        content={content}
+        close={hideEditModal}
+        posts={posts}
+      />
       {children}
     </EditContext.Provider>
   );

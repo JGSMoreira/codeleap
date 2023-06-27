@@ -24,9 +24,7 @@ export default function SignUp() {
       <div className={styles.central_container}>
         <h3 className={styles.welcome_text}>Welcome to CodeLeap network!</h3>
         <form className="flex_form" onSubmit={handleSubmit}>
-          <label htmlFor="username">
-            Please enter your username
-          </label>
+          <label htmlFor="username">Please enter your username</label>
           <input
             id="username"
             type="text"

@@ -12,15 +12,14 @@ export default function Feed() {
   const [posts, setPosts] = useState([]);
   const { showLoading, hideLoading } = useLoading();
 
-    async function fetch(offset = 0) {
-        console.log(offset);
-        try {
-            const response = await getPosts(offset, 10);
-            return response;
-        } catch (err) {
-            alert(err.message);
-        }
+  async function fetch(offset = 0) {
+    try {
+      const response = await getPosts(offset, 10);
+      return response;
+    } catch (err) {
+      alert(err.message);
     }
+  }
 
   async function fetchData() {
     showLoading();
@@ -32,10 +31,12 @@ export default function Feed() {
     showLoading();
     const offset = posts?.next?.trim().split("&offset=")[1];
     const newPosts = await fetch(offset);
-    setPosts((posts) => {return {
+    setPosts((posts) => {
+      return {
         next: newPosts?.next,
         results: [...posts?.results, ...newPosts?.results],
-    }});
+      };
+    });
     hideLoading();
   }
 
@@ -43,13 +44,12 @@ export default function Feed() {
     fetchData();
   }, []);
 
-
   useEffect(() => {
     function handleScroll() {
-        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+      const { scrollTop, scrollHeight, clientHeight } =
+        document.documentElement;
 
-        if (scrollTop + clientHeight >= scrollHeight)
-            fetchMore();
+      if (scrollTop + clientHeight >= scrollHeight) fetchMore();
     }
 
     window.addEventListener("scroll", handleScroll);
@@ -66,11 +66,7 @@ export default function Feed() {
             <div className={styles.feed_posts}>
               {!!posts?.results?.length &&
                 posts?.results?.map((post) => (
-                  <PostCard
-                    key={post.id}
-                    {...post}
-                    posts={posts}
-                  />
+                  <PostCard key={post.id} {...post} posts={posts} />
                 ))}
             </div>
           </DeleteProvider>

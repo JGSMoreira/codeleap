@@ -1,21 +1,28 @@
-import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { timeAgo } from '@/actions/utils';
+import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { timeAgo } from "@/actions/utils";
 import { useSelector } from "react-redux";
-import styles from './post-card.module.css'
-import { useEditModal } from '../modal/edit/editProvider';
-import { useDeleteModal } from '../modal/delete/deleteProvider';
+import styles from "./post-card.module.css";
+import { useEditModal } from "../modal/edit/editProvider";
+import { useDeleteModal } from "../modal/delete/deleteProvider";
 
-export default function PostCard({id, title, content, created_datetime, username, posts}){
+export default function PostCard({
+  id,
+  title,
+  content,
+  created_datetime,
+  username,
+  posts,
+}) {
   const loggedUser = useSelector((state) => state.user.username);
   const modalEdit = useEditModal();
   const modalDelete = useDeleteModal();
 
-  function handleEdit(){
+  function handleEdit() {
     modalEdit.showEditModal(id, title, content, posts);
   }
 
-  function handleDelete(){
+  function handleDelete() {
     modalDelete.showDeleteModal(id, posts);
   }
 
@@ -26,8 +33,16 @@ export default function PostCard({id, title, content, created_datetime, username
         <div className={styles.post_options}>
           {loggedUser === username && (
             <>
-              <FontAwesomeIcon icon={faTrash} onClick={handleDelete} title='Delete'/>
-              <FontAwesomeIcon icon={faPenToSquare} onClick={handleEdit} title='Edit'/>
+              <FontAwesomeIcon
+                icon={faTrash}
+                onClick={handleDelete}
+                title="Delete"
+              />
+              <FontAwesomeIcon
+                icon={faPenToSquare}
+                onClick={handleEdit}
+                title="Edit"
+              />
             </>
           )}
         </div>
