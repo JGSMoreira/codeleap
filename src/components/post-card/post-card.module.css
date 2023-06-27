@@ -1,0 +1,48 @@
+.card{
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid #ddd;
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    margin: 1rem 0;
+}
+
+.card_header{
+    background-color: #5297ec;
+    color: #fff;
+    padding: .5rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card_header h4{
+    margin: .5rem;
+}
+
+.post_options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: .5rem;
+    gap: 1.5rem;
+}
+
+.card_body{
+    padding: .75rem;
+
+}
+
+.post_info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #777;
+}

@@ -1,0 +1,40 @@
+.modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    position: fixed;
+    overflow: auto;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    width: 30rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+
+}
+
+.header{
+    margin-bottom: 1rem;
+}
+
+.header h4{
+    margin: 0;
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-left: auto;
+    gap: 1rem;
+}

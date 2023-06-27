@@ -1,0 +1,12 @@
+.newpost_body{
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+.newpost_title{
+    margin-top: .25rem;
+}

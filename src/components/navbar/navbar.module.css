@@ -1,0 +1,14 @@
+.navbar_body{
+    background-color: #6896ec;
+    color: #fff;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.platform_name{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-right: 1rem;
+}

@@ -1,0 +1,15 @@
+.feed_body{
+    width: 40rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+
+}
+
+.feed_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    padding: 1.5rem;
+    align-items: stretch;
+}
