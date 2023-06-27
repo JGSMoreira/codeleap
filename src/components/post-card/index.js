@@ -6,17 +6,17 @@ import styles from './post-card.module.css'
 import { useEditModal } from '../modal/edit/editProvider';
 import { useDeleteModal } from '../modal/delete/deleteProvider';
 
-export default function PostCard({id, title, content, created_datetime, username, fetch}){
+export default function PostCard({id, title, content, created_datetime, username, posts}){
   const loggedUser = useSelector((state) => state.user.username);
   const modalEdit = useEditModal();
   const modalDelete = useDeleteModal();
 
   function handleEdit(){
-    modalEdit.showEditModal(id, title, content, fetch);
+    modalEdit.showEditModal(id, title, content, posts);
   }
 
   function handleDelete(){
-    modalDelete.showDeleteModal(id, fetch);
+    modalDelete.showDeleteModal(id, posts);
   }
 
   return (

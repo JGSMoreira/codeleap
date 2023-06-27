@@ -6,13 +6,12 @@ const EditContext = createContext();
 const EditProvider = ({ children }) => {
   const [show, setShow] = useState(false);
   const [content, setContent] = useState({});
-  const [onConfirm, setOnConfirm] = useState(() => {});
+  const [posts, setPosts] = useState([]);
 
-  const showEditModal = (id, title, content, onConfirm = () => {}) => {
-    
+  const showEditModal = (id, title, content, posts) => {
     setShow(true);
-    setOnConfirm(onConfirm);
     setContent({ id, title, content });
+    setPosts(posts);
   };
 
   const hideEditModal = () => {
@@ -21,9 +20,9 @@ const EditProvider = ({ children }) => {
 
   return (
     <EditContext.Provider
-      value={{ show, showEditModal, hideEditModal, onConfirm }}
+      value={{ show, showEditModal, hideEditModal }}
     >
-      <ModalEdit show={show} content={content} close={hideEditModal} onConfirm={onConfirm}/>
+      <ModalEdit show={show} content={content} close={hideEditModal} posts={posts}/>
       {children}
     </EditContext.Provider>
   );

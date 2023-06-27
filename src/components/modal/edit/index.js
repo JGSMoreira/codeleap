@@ -3,7 +3,7 @@ import Modal from "..";
 import { editPost } from "@/actions/api";
 import { useLoading } from "../loading/loadingProvider";
 
-export default function ModalEdit({ content, onConfirm, close, show }) {
+export default function ModalEdit({ content, close, show, posts }) {
   const [newTitle, setNewTitle] = useState(content?.title);
   const [newContent, setNewContent] = useState(content?.content);
   const loading = useLoading();
@@ -16,13 +16,15 @@ export default function ModalEdit({ content, onConfirm, close, show }) {
     event.preventDefault();
     try {
       await editPost({id: content.id, title: newTitle, content: newContent});
+      const post = posts.results.filter((post) => post.id == content.id)[0];
+      post.title = newTitle;
+      post.content = newContent;
     }
     catch (error) {
       alert(error);
     }
     loading.hideLoading();
     close();
-    onConfirm();
   }
 
   return (

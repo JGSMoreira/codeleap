@@ -6,11 +6,11 @@ const DeleteContext = createContext();
 const DeleteProvider = ({ children }) => {
   const [show, setShow] = useState(false);
   const [id, setId] = useState(null);
-  const [onConfirm, setOnConfirm] = useState(() => {});
+  const [posts, setPosts] = useState([]);
 
-  const showDeleteModal = (id, onConfirm = () => {}) => {
+  const showDeleteModal = (id, posts) => {
     setShow(true);
-    setOnConfirm(onConfirm);
+    setPosts(posts);
     setId(id);
   };
 
@@ -19,8 +19,13 @@ const DeleteProvider = ({ children }) => {
   };
 
   return (
-    <DeleteContext.Provider value={{ show, showDeleteModal, hideDeleteModal, onConfirm }}>
-      <ModalDelete show={show} id={id} close={hideDeleteModal} onConfirm={onConfirm}/>
+    <DeleteContext.Provider value={{ show, showDeleteModal, hideDeleteModal }}>
+      <ModalDelete
+        show={show}
+        id={id}
+        close={hideDeleteModal}
+        posts={posts}
+      />
       {children}
     </DeleteContext.Provider>
   );
