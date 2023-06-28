@@ -13,3 +13,9 @@
     padding: 1.5rem;
     align-items: stretch;
 }
+
+@media (max-width: 600px) {
+    .feed_body {
+        width: 100%;
+    }
+}
