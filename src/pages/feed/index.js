@@ -67,7 +67,8 @@ export default function Feed() {
               {!!posts?.results?.length &&
                 posts?.results?.map((post) => (
                   <PostCard key={post.id} {...post} posts={posts} />
-                ))}
+              ))}
+              <button className={styles.load_more_button} onClick={fetchMore}>Load More</button>
             </div>
           </DeleteProvider>
         </EditProvider>
