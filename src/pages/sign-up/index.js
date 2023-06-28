@@ -28,7 +28,7 @@ export default function SignUp() {
           <input
             id="username"
             type="text"
-            placeholder="Username"
+            placeholder="John Doe"
             onChange={handleUsernameChange}
           />
           <button type="submit" disabled={newUsername == ""}>
