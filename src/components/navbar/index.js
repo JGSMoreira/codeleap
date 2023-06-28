@@ -19,6 +19,7 @@ export default function Navbar() {
         icon={faRightFromBracket}
         onClick={handleLogout}
         title="Logout"
+        className="clickable"
       />
     </div>
   );

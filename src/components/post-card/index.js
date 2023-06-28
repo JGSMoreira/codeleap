@@ -37,11 +37,13 @@ export default function PostCard({
                 icon={faTrash}
                 onClick={handleDelete}
                 title="Delete"
+                className="clickable"
               />
               <FontAwesomeIcon
                 icon={faPenToSquare}
                 onClick={handleEdit}
                 title="Edit"
+                className="clickable"
               />
             </>
           )}

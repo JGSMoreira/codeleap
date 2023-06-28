@@ -5,12 +5,12 @@ import PostCard from "@/components/post-card";
 import { getPosts } from "@/actions/api";
 import { useEffect, useState } from "react";
 import { useLoading } from "@/components/modal/loading/loadingProvider";
-import styles from "./feed.module.css";
 import { EditProvider } from "@/components/modal/edit/editProvider";
 import { DeleteProvider } from "@/components/modal/delete/deleteProvider";
+import styles from "./feed.module.css";
 
 export default function Feed() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState();
   const { showLoading, hideLoading } = useLoading();
 
   async function fetch(offset = 0) {
@@ -30,15 +30,21 @@ export default function Feed() {
 
   async function fetchMore() {
     showLoading();
-    const offset = posts?.next?.trim().split("&offset=")[1];
+    const offset = posts?.next?.split("&offset=")[1];
     const newPosts = await fetch(offset);
-    setPosts((posts) => {
-      return {
+    setPosts((posts) => ({
         next: newPosts?.next,
         results: [...posts?.results, ...newPosts?.results],
-      };
-    });
+      }));
     hideLoading();
+  }
+
+  function handleScroll() {
+    if (!posts?.next) return;
+    const { scrollTop, scrollHeight, clientHeight } =
+      document.documentElement;
+
+    if (scrollTop + clientHeight >= scrollHeight) fetchMore();
   }
 
   useEffect(() => {
@@ -46,16 +52,9 @@ export default function Feed() {
   }, []);
 
   useEffect(() => {
-    function handleScroll() {
-      const { scrollTop, scrollHeight, clientHeight } =
-        document.documentElement;
-
-      if (scrollTop + clientHeight >= scrollHeight) fetchMore();
-    }
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [posts]);
 
   return (
     <div className={styles.feed_body}>
