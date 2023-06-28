@@ -39,6 +39,11 @@ button {
     width: 5rem;
     margin-left: auto;
     cursor: pointer;
+    transition: filter .1s ease-in-out;
+}
+
+button:hover:enabled{
+    filter: brightness(.75);
 }
 
 .primary{
