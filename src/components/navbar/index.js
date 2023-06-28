@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./navbar.module.css";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { logout } from "@/redux/slices/username.slice";
+import styles from "./navbar.module.css";
 
 export default function Navbar() {
   const dispach = useDispatch();

@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { setUsername } from "@/redux/slices/username.slice";
 import store from "@/redux/store";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,5 +21,12 @@ export default function Layout({ children }) {
     } else router.push("/feed");
   }, [username]);
 
-  return <>{children}</>;
+  return (
+    <>
+      <Head>
+        <title>CodeLeap Network</title>
+      </Head>
+        {children}
+    </>
+  );
 }
