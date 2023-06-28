@@ -1,6 +1,6 @@
 
 ### Online Demo:
-Click [here](codeleap-two.vercel.app) to access the production build.
+Click [here](http://codeleap-two.vercel.app) to access the production build.
 
 I wish i had more time to clean some rought edges, but i think its pretty usable :D
 
