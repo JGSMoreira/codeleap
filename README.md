@@ -16,6 +16,13 @@ And last but not least... ✨ a little bit of visual sauce here and there ✨ :)
 
 ![msedge_fsdMhFnEKQ](https://github.com/JGSMoreira/codeleap/assets/21186509/2302a1d1-ba6c-44b5-a227-9a72a060c274)
 
+## Tech Stack
+- React
+- Next.js
+- Redux
+- Axios
+- Font Awesome
+
 ## Getting Started
 
 First, run the development server:
